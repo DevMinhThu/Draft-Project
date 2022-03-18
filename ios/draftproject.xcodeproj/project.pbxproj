@@ -12,6 +12,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		162D48B5AFA045DEAA71F218 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E731D6C251B4CBB827DDB67 /* Config.xcconfig */; };
+		16521BCC2507A0EF857F7C5F /* libPods-draftproject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D99BD8EF2E6DF288B18E992 /* libPods-draftproject.a */; };
 		1BF6490A10342E0C5245B628 /* libPods-draftproject-draftprojectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFBD3F0B46770D24C42BD1D /* libPods-draftproject-draftprojectTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		95520D4E27E1EBAB00B3A3D7 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2E731D6C251B4CBB827DDB67 /* Config.xcconfig */; };
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16521BCC2507A0EF857F7C5F /* libPods-draftproject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +188,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				8B58EC81D141A86E98395C02 /* [CP] Embed Pods Frameworks */,
 				DF6AE4361B34B873BF74F572 /* [CP] Copy Pods Resources */,
-				9C63D9A3D5D14449B9A40035 /*  */,
+				9C63D9A3D5D14449B9A40035 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -342,7 +344,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-draftproject/Pods-draftproject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C63D9A3D5D14449B9A40035 /*  */ = {
+		9C63D9A3D5D14449B9A40035 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
