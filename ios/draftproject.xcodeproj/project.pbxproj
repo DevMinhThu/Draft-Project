@@ -188,7 +188,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				8B58EC81D141A86E98395C02 /* [CP] Embed Pods Frameworks */,
 				DF6AE4361B34B873BF74F572 /* [CP] Copy Pods Resources */,
-				9C63D9A3D5D14449B9A40035 /* ShellScript */,
+				9C63D9A3D5D14449B9A40035 /*  */,
 			);
 			buildRules = (
 			);
@@ -344,7 +344,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-draftproject/Pods-draftproject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C63D9A3D5D14449B9A40035 /* ShellScript */ = {
+		9C63D9A3D5D14449B9A40035 /*  */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -609,11 +609,7 @@
 					/usr/lib/swift,
 					"$(inherited)",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
-					"\"$(inherited)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -672,11 +668,7 @@
 					/usr/lib/swift,
 					"$(inherited)",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
-					"\"$(inherited)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "\"$(inherited)\"";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
