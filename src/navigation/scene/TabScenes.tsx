@@ -8,7 +8,8 @@ import HomeDetailScreen from 'feature/home/HomeDetailScreen';
 // import HomeScreen from 'feature/home/HomeScreen';
 import HomeUserListScreen from 'feature/home/HomeUserListScreen';
 import GoogleMapScreen from 'feature/map/GoogleMapScreen';
-import NotificationScreen from 'feature/notification/NotificationScreen';
+// import NotificationScreen from 'feature/notification/NotificationScreen';
+import PaymentScreen from 'feature/payments/PaymentScreen';
 import SettingView from 'feature/setting/SettingScreen';
 import StyledTabBar from 'navigation/components/StyledTabBar';
 import navigationConfigs from 'navigation/config/options';
@@ -34,16 +35,16 @@ const MainTabContainer = () => {
     const { t } = useTranslation();
     const ArrayTabs = [
         {
+            name: TAB_NAVIGATION_ROOT.NOTIFICATION_ROUTE.ROOT,
+            title: t('tab.notification'),
+            component: PaymentScreen,
+            icon: Images.icons.tab.notification,
+        },
+        {
             name: TAB_NAVIGATION_ROOT.HOME_ROUTE.ROOT,
             title: t('tab.home'),
             component: HomeStack,
             icon: Images.icons.tab.home,
-        },
-        {
-            name: TAB_NAVIGATION_ROOT.NOTIFICATION_ROUTE.ROOT,
-            title: t('tab.notification'),
-            component: NotificationScreen,
-            icon: Images.icons.tab.notification,
         },
         {
             name: TAB_NAVIGATION_ROOT.SETTING_ROUTE.ROOT,
