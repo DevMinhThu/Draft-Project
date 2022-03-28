@@ -1,18 +1,17 @@
-import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import navigationConfigs from 'navigation/config/options';
-import { isIos } from 'utilities/helper';
-import { AUTHENTICATE_ROUTE } from 'navigation/config/routes';
+import ChangePassword from 'feature/authentication/ChangePassword';
+import ForgotPasswordScreen from 'feature/authentication/ForgotPwdScreen';
 import LoginScreen from 'feature/authentication/LoginScreen';
 import RegisterScreen from 'feature/authentication/RegisterScreen';
-import ForgotPasswordScreen from 'feature/authentication/ForgotPwdScreen';
 import SendOTP from 'feature/authentication/SendOtp';
-import ChangePassword from 'feature/authentication/ChangePassword';
+import navigationConfigs from 'navigation/config/options';
+import { AUTHENTICATE_ROUTE } from 'navigation/config/routes';
+import React from 'react';
 
 const MainStack = createStackNavigator();
 
 const AuthStack = () => (
-    <MainStack.Navigator headerMode={'none'} screenOptions={navigationConfigs} keyboardHandlingEnabled={isIos}>
+    <MainStack.Navigator screenOptions={navigationConfigs}>
         <MainStack.Screen name={AUTHENTICATE_ROUTE.LOGIN} component={LoginScreen} />
         <MainStack.Screen name={AUTHENTICATE_ROUTE.REGISTER} component={RegisterScreen} />
         <MainStack.Screen name={AUTHENTICATE_ROUTE.FORGOT_PASS} component={ForgotPasswordScreen} />

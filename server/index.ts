@@ -2,6 +2,7 @@ import express from 'express';
 import Stripe from 'stripe';
 
 const app = express();
+app.use(express.json());
 const port = 3000;
 // const PUBLISHABLE_KEY =
 //     'pk_test_51KebhFIlBbGoLzRf29lF05V8HHvRvffWVo0ilCBvTWDtiEWyVCi1elpfk62fhNpE8ImEgGAFFcOTN7CdBgX6T4kN008bLxKPaf';
@@ -10,17 +11,19 @@ const SECRET_KEY =
 
 const stripe = new Stripe(SECRET_KEY, { apiVersion: '2020-08-27' });
 
-app.post('create-payment-intent', async (req, res) => {
+app.post('/create-payment-intent', async (req, res) => {
     try {
         // Create a PaymentIntent with the order amount and currency
         const paymentIntent = await stripe.paymentIntents.create({
-            // Mệnh giá thấp nhất của đơn vị tiền tệ
-            amount: 1099,
+            amount: 5000, // 50$
             currency: 'usd',
             payment_method_types: ['card'],
         });
 
+        console.log('paymentIntent', paymentIntent);
+
         const clientSecret = paymentIntent.client_secret;
+
         res.json({
             clientSecret,
         });

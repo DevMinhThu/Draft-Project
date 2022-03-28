@@ -6,32 +6,30 @@ import AlertMessage from 'components/base/AlertMessage';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-const API_URL = 'http://localhost:3000';
-
 const PaymentScreen = () => {
     const [email, setEmail] = useState<any>();
     const [cardDetails, setCardDetails] = useState<any>();
     const { confirmPayment } = useConfirmPayment();
+    // const { confirmPayment } = useStripe();
 
     const fetchPaymentIntentClientSecret = async () => {
-        const response = await fetch(`${API_URL}/create-payment-intent`, {
+        const response = await fetch('http://localhost:3000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
         });
-        const { clientSecret, error } = await response.json();
+        const { clientSecret, error }: any = await response.json();
+        // const { clientSecret, error } = await response.json();
+        console.log('clientSecret', clientSecret);
         return { clientSecret, error };
     };
 
     const handlePayment = async () => {
-        // B1. Thu thập thông tin của khách hàng.
         if (!cardDetails?.complete || !email) {
             AlertMessage('Please enter Complete Card detail & Email ');
         }
-        const billingDetails = {
-            email,
-        };
+        const billingDetails = { email };
         // B2. Lấy (fetch) chuỗi bí mật của khách hàng từ backend.
         try {
             const { clientSecret, error } = await fetchPaymentIntentClientSecret();
@@ -54,13 +52,11 @@ const PaymentScreen = () => {
         } catch (error: any) {
             console.log(error);
         }
-        // B3. Xác nhận thanh toán bằng thẻ chi tiết.
     };
 
     return (
         <View style={styles.container}>
             <StyledInput
-                autoCapitalize="none"
                 placeholder="E-mail"
                 keyboardType="email-address"
                 onChangeText={(text: any) => setEmail(text)}
