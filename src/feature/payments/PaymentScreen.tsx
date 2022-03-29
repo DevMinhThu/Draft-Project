@@ -1,5 +1,6 @@
 /* eslint-disable no-shadow */
 import { CardField, useConfirmPayment } from '@stripe/stripe-react-native';
+import { fetchPaymentIntentClientSecret } from 'api/modules/api-app/paymentStripe';
 import { Themes } from 'assets/themes';
 import { StyledButton, StyledInput } from 'components/base';
 import AlertMessage from 'components/base/AlertMessage';
@@ -7,33 +8,19 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 const PaymentScreen = () => {
-    const [email, setEmail] = useState<any>();
+    const [email, setEmail] = useState<any>('user@stripe.com');
     const [cardDetails, setCardDetails] = useState<any>();
     const { confirmPayment } = useConfirmPayment();
-    // const { confirmPayment } = useStripe();
-
-    const fetchPaymentIntentClientSecret = async () => {
-        const response = await fetch('http://localhost:3000/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const { clientSecret, error }: any = await response.json();
-        // const { clientSecret, error } = await response.json();
-        console.log('clientSecret', clientSecret);
-        return { clientSecret, error };
-    };
 
     const handlePayment = async () => {
         if (!cardDetails?.complete || !email) {
             AlertMessage('Please enter Complete Card detail & Email ');
         }
         const billingDetails = { email };
-        // B2. Lấy (fetch) chuỗi bí mật của khách hàng từ backend.
+
+        // B2. Fetch Payment Intent Client Secret
         try {
-            const { clientSecret, error } = await fetchPaymentIntentClientSecret();
-            console.log('clientSecret', clientSecret);
+            const { clientSecret, error }: any = await fetchPaymentIntentClientSecret();
             // 2. confirm the payment
             if (error) {
                 AlertMessage('Unable to process payment');
@@ -61,6 +48,7 @@ const PaymentScreen = () => {
                 keyboardType="email-address"
                 onChangeText={(text: any) => setEmail(text)}
                 customStyle={styles.input}
+                value={email}
             />
             <CardField
                 postalCodeEnabled={true}
