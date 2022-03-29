@@ -36,7 +36,7 @@ const PaymentScreen = () => {
             console.log('clientSecret', clientSecret);
             // 2. confirm the payment
             if (error) {
-                console.log('Unable to process payment');
+                AlertMessage('Unable to process payment');
             } else {
                 const { paymentIntent, error } = await confirmPayment(clientSecret, {
                     type: 'Card',

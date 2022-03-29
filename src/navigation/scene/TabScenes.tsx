@@ -16,13 +16,12 @@ import navigationConfigs from 'navigation/config/options';
 import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { isIos } from 'utilities/helper';
 
 const MainStack = createStackNavigator();
 const MainTab = createBottomTabNavigator();
 
 const HomeStack = () => (
-    <MainStack.Navigator headerMode={'none'} screenOptions={navigationConfigs} keyboardHandlingEnabled={isIos}>
+    <MainStack.Navigator screenOptions={navigationConfigs}>
         <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME} component={GoogleMapScreen} />
         <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME_DETAIL} component={HomeDetailScreen} />
         <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.WEB_VIEW} component={HomeDetailScreen} />
